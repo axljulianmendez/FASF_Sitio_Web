@@ -1,0 +1,638 @@
+/* =========================
+   IMPORTACIÓN DE FUENTES
+========================= */
+@import url('https://fonts.bunny.net/css?family=barlow-semi-condensed:300,300i,400,400i,700,700i');
+@import url('https://fonts.bunny.net/css?family=space-grotesk:300,400,700');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+/* =========================
+   RESET GENERAL
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+html, body {
+  height: 100%;
+}
+
+
+/* =========================
+   VARIABLES GLOBALES
+========================= */
+:root {
+  --color-text: rgb(5, 5, 5);
+  --color-links: rgb(255, 77, 0);
+  --color-header: rgb(248, 248, 248);
+  --color-header2: rgba(10, 20, 40, 0.85);
+  --color-footer: rgb(40, 40, 43);
+}
+
+
+/* =========================
+   ESTRUCTURA BASE
+========================= */
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: "Inter", sans-serif;
+  color: var(--color-text);
+}
+
+
+main {
+  flex: 1;
+}
+
+
+/* =========================
+   TIPOGRAFÍA
+========================= */
+h1, h2, h3 {
+  font-family: 'Space Grotesk';
+}
+
+
+h1 {
+  font-size: 2.7em;
+}
+
+
+a {
+  color: var(--color-links);
+  text-decoration: none;
+}
+
+
+/* =========================
+   HEADER (CABECERA PRINCIPAL)
+========================= */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--color-header2);
+}
+
+
+/* Contenedor del logo + nombre */
+.branding {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* Agrupa título y subtítulo */
+.text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Imagen del logo */
+.logo-img {
+  height: 30px;
+  filter: invert(1);
+}
+
+
+/* Título principal del sitio */
+.title {
+  font-size: 28px;
+}
+
+
+/* Subtítulo */
+.subtitle {
+  font-size: 18px;
+}
+
+
+/* Estilo común para textos del header */
+.title,
+.subtitle,
+.main-nav a {
+  font-family: 'Barlow Semi Condensed';
+  font-weight: 700;
+  color: var(--color-header);
+}
+
+
+/* =========================
+   MENÚ DE NAVEGACIÓN
+========================= */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+
+.main-nav a {
+  padding: 8px 12px;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+
+/* Animación de fondo al hacer hover */
+.main-nav a::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-header);
+  z-index: -1;
+  transition: top 0.3s ease;
+}
+
+
+.main-nav a:hover {
+  color: var(--color-links);
+}
+
+
+.main-nav a:hover::before {
+  top: 0;
+}
+
+
+/* Link activo */
+.main-nav a.active {
+  color: var(--color-links);
+}
+
+
+/* =========================
+   WRAPPER (SECCIÓN PRINCIPAL CON FONDO)
+========================= */
+.wrapper {
+  padding: 160px 35px 100px;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    var(--wrapper-bg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+
+/* Variantes de fondo según página */
+.wrapper.motor {
+  --wrapper-bg: url(../images/Motor.png);
+}
+.wrapper.fornax {
+  --wrapper-bg: url(../images/Fornax.png);
+}
+.wrapper.luna {
+  --wrapper-bg: url(../images/Luna.png);
+}
+.wrapper.building {
+  --wrapper-bg: url(../images/Building.jpg);
+}
+
+
+/* Contenido dentro del wrap */
+.content {
+  max-width: 700px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+
+/* Botón */
+.boton {
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: var(--color-links);
+  padding: 11px 28px;
+  font-size: 20px;
+  font-family: 'Space Grotesk';
+  font-weight: 700;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+
+/* =========================
+   Instalaciones
+========================= */
+
+
+.facilities {
+  background-color: black;
+  color: white;
+  padding: 80px 40px;
+}
+
+
+.facilities-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+}
+
+
+/* Grid */
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* Card */
+.facility-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* Texto */
+.facility-content {
+  margin-top: 20px;
+}
+
+
+.facility-location {
+  font-size: 12px;
+  opacity: 0.7;
+  letter-spacing: 1px;
+}
+
+
+.facility-content h3 {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+
+.facility-content p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+
+/* =========================
+   GALERÍA DE IMÁGENES
+========================= */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(4, 300px);
+  gap: 35px;
+  padding: 45px;
+}
+
+
+/* Tarjeta de imagen */
+.img-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  height: 300px;
+  width: 300px;
+}
+
+
+/* Imagen dentro de la tarjeta */
+.img-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+
+/* Overlay al hacer hover */
+.img-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  color: white;
+  font-family: 'Space Grotesk';
+  font-size: 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+
+/* Texto del overlay */
+.img-overlay p {
+  margin: 0;
+  transform: translateY(20px);
+  transition: 0.3s;
+}
+
+
+/* Efectos hover */
+.img-card:hover img {
+  filter: brightness(50%);
+  transform: scale(1.05);
+}
+
+
+.img-card:hover .img-overlay {
+  opacity: 1;
+}
+
+
+.img-card:hover .img-overlay p {
+  transform: translateY(0);
+}
+
+
+/* =========================
+   FORMULARIO
+========================= */
+.form-section {
+  background: white;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Cabecera del formulario */
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+
+/* Banner superior */
+.form-banner {
+  width: 100%;
+  max-width: 390px;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  margin-bottom: 40px;
+  border-radius: 5px;
+}
+
+
+/* Formulario principal */
+.custom-form {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+
+/* Fila de inputs */
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+
+.row input {
+  flex: 1;
+}
+
+
+/* Inputs, textarea y select */
+.custom-form input,
+.custom-form textarea,
+.custom-form select {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #cfd4d8;
+  font-family: "Inter";
+  font-size: 16px;
+  outline: none;
+  transition: 0.2s;
+}
+
+
+/* Área de texto */
+.custom-form textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+
+/* Focus en campos */
+.custom-form input:focus,
+.custom-form textarea:focus,
+.custom-form select:focus {
+  border-color: var(--color-links);
+}
+
+
+/* Checkbox */
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+
+.checkbox input {
+  width: auto;
+}
+
+
+/* Botón enviar */
+.custom-form button {
+  background: var(--color-links);
+  color: white;
+  border: none;
+  padding: 18px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-family: 'Space Grotesk';
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+.custom-form button:hover {
+  background: #ff4d00e2;
+}
+
+
+/* Contenedor del formulario + Imagen */
+.contact-split {
+  display: flex;
+  width: 100%;
+  min-height: 700px;
+}
+
+
+/* Imagen */
+.contact-image {
+  flex: 0.5;
+  background: url('../images/Contacto.png');
+  background-size: cover;
+  background-position: center;
+}
+
+
+/* Contenedor */
+.contact-form-container {
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 40px;
+}
+
+
+/* Ajuste de elementos */
+.contact-form-container .custom-form {
+  max-width: 500px;
+  width: 100%;
+}
+
+
+/* Estetica imagen */
+.contact-form-container .form-banner {
+  background: transparent;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+
+.contact-form-container h2 {
+  font-family: 'Space Grotesk';
+  font-size: 32px;
+}
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .contact-split {
+    flex-direction: column;
+  }
+
+
+  .contact-image {
+    height: 250px;
+  }
+}
+
+/* =========================
+   FOOTER
+========================= */
+.site-footer {
+  padding: 20px;
+  background: var(--color-footer);
+  color: var(--color-header);
+  font-family: 'Space Grotesk';
+}
+
+
+/* Parte superior del footer */
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 40px;
+}
+
+
+/* Sección "about" */
+.footer-about h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+
+.footer-about p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+
+/* Redes sociales */
+.footer-social {
+  grid-column: 2;
+  justify-self: end;
+  text-align: right;
+}
+
+
+.footer-social h3 {
+  margin-bottom: 15px;
+}
+
+
+/* Iconos sociales */
+.footer-social .icons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+
+.footer-social .icons span {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Parte inferior del footer */
+.footer-bottom {
+  margin-top: 20px;
+}
+
+
+/* Meta info (links legales, etc.) */
+.footer-meta {
+  font-size: 13px;
+  opacity: 0.7;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+
+/* =========================
+   hr
+========================= */
+hr {
+  margin: 1em 0;
+  height: 1px;
+  background-color: white;
+  border: none;
+}
